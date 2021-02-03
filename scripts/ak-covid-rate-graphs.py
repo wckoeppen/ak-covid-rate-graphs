@@ -173,7 +173,7 @@ def count_plot(_series, _percents, color="#006B95", title="", width=0.9):
     ax.tick_params(axis="x", labelsize=16, length=0)
     ax.tick_params(axis="x", pad=10)
     ax.tick_params(axis="y", labelsize=16, length=10)
-    ax.set_title(title, fontsize=36, fontweight="bold", loc="left", pad=25)
+    ax.set_title(title, fontsize=28, fontweight="bold", loc="left", pad=25)
 
     def autolabel(rects):
         """Attach a text label above each bar in *rects*, displaying its height.
@@ -289,7 +289,7 @@ def rate_plot(_series, color="#006B95", title="", width=0.9):
     x_labels = ["\n".join(textwrap.wrap(label, 18)) for label in x_labels]
     x_locs = np.arange(len(x_labels))  # the label locations
     # y-values
-    y_values = _series.values * 100
+    y_values = _series.values * 100000
 
     fig = plt.figure(figsize=(20, 10))
     ax = fig.add_axes([0, 0, 1, 1])
@@ -299,7 +299,7 @@ def rate_plot(_series, color="#006B95", title="", width=0.9):
     #    xlabels = [re.sub("(.{10})", "\\1\n", label, 0, re.DOTALL) for label in xlabels]
     ax.set_xticks(np.arange(len(x_locs)))
     ax.set_xticklabels(x_labels, rotation=0)
-    ax.set_ylabel("Rate per 100 population", fontsize=16, labelpad=12)
+    ax.set_ylabel("Rate per 100,000 population", fontsize=16, labelpad=12)
     # grid
     #     ax.grid(axis='y')
     #     ax.set_axisbelow(True)
@@ -319,7 +319,7 @@ def rate_plot(_series, color="#006B95", title="", width=0.9):
 
     ax.tick_params(axis="y", labelsize=16, length=10)
 
-    ax.set_title(title, fontsize=29, fontweight="bold", loc="left", pad=25)
+    ax.set_title(title, fontsize=28, fontweight="bold", loc="left", pad=25)
 
     def autolabel(rects):
 
@@ -398,16 +398,16 @@ to_plot = rate_data.drop(labels=["Unknown Race", "Race Under Investigation"])
 
 case_rate_plot = rate_plot(
     to_plot["Case Rate"],
-    title="Alaska: COVID-19-associated case rates per 100 people by race / ethnicity",
+    title="Alaska: COVID-19-associated case rates per 100,000 people by race / ethnicity",
 )
 hosp_rate_plot = rate_plot(
     to_plot["Hospitalization Rate"],
-    title="Alaska: COVID-19-associated hospitalization rates per 100 people by race / ethnicity",
+    title="Alaska: COVID-19-associated hospitalization rates per 100,000 people by race / ethnicity",
     color="#33a02c",
 )
 deat_rate_plot = rate_plot(
     to_plot["Death Rate"],
-    title="Alaska: COVID-19-associated death rates per 100 people by race / ethnicity",
+    title="Alaska: COVID-19-associated death rates per 100,000 people by race / ethnicity",
     color="#B85009",
 )
 
