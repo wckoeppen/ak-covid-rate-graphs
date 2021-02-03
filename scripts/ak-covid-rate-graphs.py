@@ -327,7 +327,7 @@ def rate_plot(_series, color="#006B95", title="", width=0.9):
         for rect in rects:
             height = rect.get_height()
             ax.annotate(
-                f"{height:0.3f}",
+                f"{height:0.0f}",
                 xy=(rect.get_x() + rect.get_width() / 2, height),
                 xytext=(0, 20),  # 3 points vertical offset
                 textcoords="offset points",
