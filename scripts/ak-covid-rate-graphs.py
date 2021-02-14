@@ -1,14 +1,10 @@
-#!/usr/bin/env python
-# coding: utf-8
-
+#!/home/will/miniconda/envs/ak-covid-rate-graphs/bin/python
 import textwrap
 from datetime import datetime
-
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 import requests
-
 import os
 cwd = os.getcwd()
 print(cwd)
